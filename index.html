@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="classes">
+
+  <head>
+    <title>~</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <img src="logo.jpg" alt="anime girl">
+    <nav>
+      <!-- <h1>ジェイ</h1> -->
+      <h1>今晩は</h1>
+      <h1 id="date"></h1>
+      <script async src="scripts/date.js"></script>
+      <ul>
+        <li>~/general </li>
+        <li><a href="https://youtube.com/">youtube</a></li>
+        <li><a href="https://www.monkeytype.com/">monkeytype</a></li>
+        <li><a href="https://www.netflix.com/">netflix</a></li>
+        <li><a href="https://www.wattpad.com/">wattpad</a></li>
+      </ul>
+
+      <ul>
+        <li>~/devel </li>
+        <li><a href="https://aur.archlinux.org/">aur</a></li>
+        <li><a href="https://github.com/kqcl?tab=repositories">github</a></li>
+        <li><a href="https://wiki.archlinux.org/">arch wiki</a></li>
+        <li><a href="https://leetcode.com/">leetcode</a></li>
+      </ul>
+
+      <ul>
+        <li>~/reddit </li>
+        <li><a href="https://www.reddit.com">home page</a></li> 
+        <li><a href="https://www.reddit.com/r/unixporn/">r/unixporn</a></li>
+        <li><a href="https://www.reddit.com/r/blahaj/">r/blahaj</a></li>
+        <li><a href="https://www.reddit.com/r/archlinux/">r/archlinux</a></li>
+        <form id="searchForm" action="https://duckduckgo.com/" method="GET"> 
+          <input autofocus
+                 id="searchInput"
+                 name="q"
+                 type="search"
+                 placeholder="search with ddg..."
+                 autocomplete="off">
+        </form>
+      </ul>
+
+      <ul>
+        <li>~/school 󰑴</li>
+        <li><a href="https://brandenburg.cloud/">schulcloud</a></li>
+        <li><a href="https://moodle.humboldtgym.de/">moodle</a></li>
+        <li><a href="https://z-library.se/">z-library</a></li>
+        <li><a href="https://gmail.com/">mail</a></li>
+      </ul>
+    </nav>
+
+
+  </body>
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+      let inputValue = document.getElementById('searchInput').value.trim();
+      if (isValidURL(inputValue)) {
+        if (!inputValue.startsWith('http')) {
+          inputValue = 'https://' + inputValue;
+        }
+        window.location.href = inputValue;
+      } else {
+        document.getElementById('searchForm').submit();
+      }
+    });
+
+    function isValidURL(str) {
+      const urlRegex = /(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-zA-Z0-9][a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+([\/?].*)?$/;
+      return urlRegex.test(str);
+    }
+  </script>
+</html>
